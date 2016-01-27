@@ -1,0 +1,14 @@
+language: cpp
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - valgrind
+
+script:
+  - make
+
+after_success:
+  - valgrind --tool=memcheck ./sg 
